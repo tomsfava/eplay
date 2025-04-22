@@ -1,21 +1,80 @@
-import zelda from '../../assets/images/zelda.png'
-import { Items, Item } from './styles'
+import { Items, Item, Action, Modal, ModalContent } from './styles'
 
-const Gallery = () => (
-  <Items>
-    <Item>
-      <img src={zelda} alt="imagem do link" />
-    </Item>
-    <Item>
-      <img src={zelda} alt="imagem do link" />
-    </Item>
-    <Item>
-      <img src={zelda} alt="imagem do link" />
-    </Item>
-    <Item>
-      <img src={zelda} alt="imagem do link" />
-    </Item>
-  </Items>
-)
+import hogwarts from '../../assets/images/fundo_hogwarts.png'
+import spiderman from '../../assets/images/banner-homem-aranha.png'
+import play from '..//../assets/images/play.png'
+import zoom from '..//../assets/images/zoom.png'
+import Section from '../Section'
+import close from '../../assets/images/fechar.png'
+
+type GalleryItem = {
+  type: 'image' | 'video'
+  url: string
+}
+
+const mock: GalleryItem[] = [
+  {
+    type: 'image',
+    url: spiderman
+  },
+  {
+    type: 'image',
+    url: hogwarts
+  },
+  {
+    type: 'video',
+    url: 'https://www.youtube.com/embed/uHGShqcAHlQ?si=Yq9f4bm9CB_ZM5sj'
+  }
+]
+
+type Props = {
+  defaultCover: string
+  name: string
+}
+
+const Gallery = ({ defaultCover, name }: Props) => {
+  const getMediaCover = (item: GalleryItem) => {
+    if (item.type === 'image') return item.url
+    return defaultCover
+  }
+
+  const getMediaIcon = (item: GalleryItem) => {
+    if (item.type === 'image') return zoom
+    return play
+  }
+
+  return (
+    <>
+      <Section title="Galeria" background="black">
+        <Items>
+          {mock.map((media, index) => (
+            <Item key={index}>
+              <img
+                src={getMediaCover(media)}
+                alt={`Mídia ${index + 1} de ${name}`}
+              />
+              <Action>
+                <img
+                  src={getMediaIcon(media)}
+                  alt="Clique para maximizar a imagem"
+                />
+              </Action>
+            </Item>
+          ))}
+        </Items>
+      </Section>
+      <Modal>
+        <ModalContent className="container">
+          <header>
+            <h4>{name}</h4>
+            <img src={close} alt="Ícone de fechar" />
+          </header>
+          <img src={spiderman} />
+        </ModalContent>
+        <div className="overlay"></div>
+      </Modal>
+    </>
+  )
+}
 
 export default Gallery
