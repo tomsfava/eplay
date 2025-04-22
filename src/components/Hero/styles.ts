@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { cores } from '../../styles'
+import { TagContainer } from '../Tag/styles'
 
 export const Banner = styled.div`
   position: relative;
@@ -21,6 +23,10 @@ export const Banner = styled.div`
     opacity: 0.56;
   }
 
+  ${TagContainer} {
+    margin-right: 8px;
+  }
+
   .container {
     z-index: 1;
     position: relative;
@@ -28,5 +34,26 @@ export const Banner = styled.div`
     flex-direction: column;
     height: 100%;
     justify-content: space-between;
+  }
+`
+
+export const Infos = styled.div`
+  padding: 16px;
+  background-color: ${cores.preta};
+  max-width: 290px;
+  font-weight: bold;
+
+  h2 {
+    font-size: 32px;
+  }
+
+  p {
+    font-size: 18px;
+    margin: 16px 0;
+
+    span {
+      display: block;
+      text-decoration: line-through;
+    }
   }
 `

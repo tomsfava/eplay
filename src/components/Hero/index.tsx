@@ -1,7 +1,8 @@
 import bannerImg from '../../assets/images/fundo_hogwarts.png'
+import Button from '../Button'
 import Tag from '../Tag'
 
-import { Banner } from './styles'
+import { Banner, Infos } from './styles'
 
 const Hero = () => (
   <Banner style={{ backgroundImage: `url(${bannerImg})` }}>
@@ -10,14 +11,20 @@ const Hero = () => (
         <Tag>RPG</Tag>
         <Tag>PS5</Tag>
       </div>
-      <div>
+      <Infos>
         <h2>Hogwarts Legacy</h2>
         <p>
-          De R$ 250,00 <br />
+          <span>De R$ 250,00</span>
           Por R$ 190,00
         </p>
-        <button>Adicionar ao carrinho</button>
-      </div>
+        <Button
+          type="button"
+          title="Clique aqui para adicionar este jogo ao carrinho"
+          variant="primary"
+        >
+          Adicionar ao carrinho
+        </Button>
+      </Infos>
     </div>
   </Banner>
 )
