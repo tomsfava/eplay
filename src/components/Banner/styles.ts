@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { TagContainer } from '../Tag/styles'
 
 export const Imagem = styled.div`
+  position: relative;
   height: 560px;
   width: 100%;
   display: block;
@@ -15,6 +16,17 @@ export const Imagem = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    z-index: 1;
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    content: '';
   }
 
   ${TagContainer} {
