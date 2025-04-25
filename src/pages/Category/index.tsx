@@ -2,10 +2,6 @@ import { useEffect, useState } from 'react'
 import ProductsList from '../../components/ProductsList'
 import { Game } from '../Home'
 
-const promocoes: Game[] = []
-
-const emBreve: Game[] = []
-
 const Category = () => {
   const [gamesAcao, setGamesAcao] = useState<Game[]>([])
   const [gamesEsporte, setGamesEsporte] = useState<Game[]>([])
