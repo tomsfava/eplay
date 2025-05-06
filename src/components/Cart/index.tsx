@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { close, remove } from '../../store/reducers/cart'
+import { RootReducer } from '../../store'
 
 import Tag from '../Tag'
 import Button from '../Button'
@@ -13,7 +14,6 @@ import {
   CartItem
 } from './styles'
 
-import { RootReducer } from '../../store'
 import { formataPreco } from '../ProductsList'
 
 const Cart = () => {
